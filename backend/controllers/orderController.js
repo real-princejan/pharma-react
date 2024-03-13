@@ -112,7 +112,7 @@ router.put(
         order.deliveredAt = Date.now();
         order.paymentInfo.status = "Succeeded";
         const serviceCharge = order.totalPrice * .10;
-        await updateSellerInfo(order.totalPrice - serviceCharge);
+        await updateSellerInfo(order.totalPrice);
       }
 
       await order.save({ validateBeforeSave: false });
@@ -188,7 +188,7 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: "Order Refund successfull!",
+        message: "Order Refund successful!",
       });
 
       if (req.body.status === "Refund Success") {

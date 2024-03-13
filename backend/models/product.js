@@ -46,24 +46,26 @@ const productSchema = new mongoose.Schema({
       productId: {
         type: String,
       },
-      createdAt: {
+      createdAt:{
         type: Date,
         default: Date.now(),
-      },
+      }
     },
   ],
   ratings: {
     type: Number,
   },
-  sold_out: {
-    type: Number,
-  },
   shopId: {
     type: String,
+    required: true,
   },
   shop: {
     type: Object,
     required: true,
+  },
+  sold_out: {
+    type: Number,
+    default: 0,
   },
   createdAt: {
     type: Date,
