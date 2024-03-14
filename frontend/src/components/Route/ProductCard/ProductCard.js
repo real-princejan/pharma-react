@@ -80,8 +80,18 @@ const ProductCard = ({ data }) => {
           </h4>
           {/* Stars */}
           <div className="flex ">
-          <Ratings rating={data?.ratings} />
-            
+            <Ratings rating={data?.ratings} />
+          </div>
+
+          {/* Stock */}
+          <div className="flex items-center mt-2">
+            <span
+              className={`${
+                data.stock > 0 ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {data.stock > 0 ? `${data.stock} left` : "Out of Stock"}
+            </span>
           </div>
 
           {/* Price */}

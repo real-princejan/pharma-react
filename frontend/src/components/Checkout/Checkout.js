@@ -348,7 +348,7 @@ const CartData = ({
           required
         />
         <input
-          className={`w-full h-[40px] border border-[#88ff8e] text-center bg-transparent hover:bg-[#88ff8e] text-gray-500 rounded-[3px] mt-8 cursor-pointer`}
+          className={`w-full h-[40px] border border-[#4ace51] text-center bg-transparent hover:bg-[#4ace51] text-gray-500 rounded-[3px] mt-8 cursor-pointer`}
           required
           value="Apply code"
           type="submit"

@@ -1,4 +1,3 @@
-
 // navigation Data
 export const navItems = [
   {
@@ -9,10 +8,7 @@ export const navItems = [
     title: "Products",
     url: "/products",
   },
-  {
-    title: "Events",
-    url: "/events",
-  },
+
   {
     title: "FAQ",
     url: "/faq",
@@ -140,44 +136,46 @@ export const categoriesData = [
     id: 1,
     title: "Personal Care",
     subTitle: "",
-    image_Url:
-    "https://i.ibb.co/4mL2Ydj/pc.png",
+    image_Url: "https://i.ibb.co/4mL2Ydj/pc.png",
   },
   {
     id: 2,
-    title: "Pharmacy",
-    subTitle: "",
-    image_Url:
-    "https://i.ibb.co/hmMTbKB/pharmacy.png",
-  },
-  {
-    id: 3,
     title: "Health Care",
     subTitle: "",
     image_Url:
       "https://i.ibb.co/YjFBxLg/Green-Black-Minimalist-Health-Care-Logo.png",
   },
   {
-    id: 4,
+    id: 3,
     title: "Cosmetics",
     subTitle: "",
-    image_Url:
-    "https://i.ibb.co/pn8SS9x/cmts.png",
+    image_Url: "https://i.ibb.co/pn8SS9x/cmts.png",
   },
   {
-    id: 5,
+    id: 4,
     title: "Supplement",
     subTitle: "",
-    image_Url:
-    "https://i.ibb.co/0V8T58W/stms.png",
+    image_Url: "https://i.ibb.co/0V8T58W/stms.png",
   },
   {
     id: 5,
-    title: "Over-The-Counter",
+    title: "Men Care",
     subTitle: "",
     image_Url:
-    "https://i.ibb.co/2jdtFcB/otc.png"
-    ,
+      "https://i.ibb.co/vQkpmf6/Green-Black-Minimalist-Health-Care-Logo-1.png",
+  },
+  {
+    id: 6,
+    title: "Over-The-Counter",
+    subTitle: "",
+    image_Url: "https://i.ibb.co/2jdtFcB/otc.png",
+  },
+  {
+    id: 7,
+    title: "Baby & Kids",
+    subTitle: "",
+    image_Url:
+      "https://i.ibb.co/r271BH0/Green-Black-Minimalist-Health-Care-Logo-2.png",
   },
 ];
 
@@ -241,7 +239,6 @@ export const productData = [
     rating: 5,
     total_sell: 80,
     stock: 10,
-    
   },
 ];
 
@@ -270,11 +267,7 @@ export const footercompanyLinks = [
     link: "/products?category=Personal%20Care",
   },
   {
-    name: "Pharmacy",
-    link: "/products?category=Pharmacy",
-  },
-  {
-    name: "HealthCare",
+    name: "Health Care",
     link: "/products?category=Health%20Care",
   },
   {
@@ -284,12 +277,18 @@ export const footercompanyLinks = [
   {
     name: "Supplement",
     link: "products?category=Supplement",
-    
+  },
+  {
+    name: "Men Care",
+    link: "/products?category=Men%20Care",
   },
   {
     name: "Over-The-Counter",
     link: "/products?category=Over-The-Counter",
-    
+  },
+  {
+    name: "Baby & Kids",
+    link: "/products?category=Baby%20&%20Kids",
   },
 ];
 

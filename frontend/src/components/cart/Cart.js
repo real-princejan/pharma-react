@@ -77,10 +77,10 @@ const Cart = ({ setOpenCart }) => {
               {/* checkout buttons */}
               <Link to="/checkout">
                 <div
-                  className={`h-[45px] flex items-center justify-center w-[100%] bg-[#88ff8e] rounded-[5px]`}
+                  className={`h-[45px] flex items-center justify-center w-[100%] bg-[#4ace51] rounded-[5px]`}
                 >
                   <h1 className="text-[#fff] text-[18px] font-[600]">
-                    Checkout Now (PHP {totalPrice}.00)
+                    Checkout Now (PHP {totalPrice})
                   </h1>
                 </div>
               </Link>

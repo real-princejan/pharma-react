@@ -11,7 +11,7 @@ const styles = {
   button:
     "w-[150px] border-green-500 bg-transparent h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer",
   buttonR:
-    "w-[150px] text-gray-700 bg-green-500 border h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer hover:shadow-md",
+    "w-[150px] bg-green-500 border h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer hover:shadow-md",
   buttonX:
     "w-[150px] bg-red-500 border border-red-500 h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer hover:shadow-sm",
   cart_button:

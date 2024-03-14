@@ -149,15 +149,15 @@ const ShopSettings = () => {
 
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <div className="w-full pl-[3%]">
-              <label className="block pb-2">Cashier Phone Number</label>
+              <label className="block pb-2">Cashier Id Number</label>
             </div>
             <input
               type="number"
               placeholder={seller?.phoneNumber}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
-              required
+              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 bg-gray-200 cursor-not-allowed`}
+              readOnly
             />
           </div>
 

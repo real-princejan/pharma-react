@@ -170,7 +170,7 @@ const CartData = ({ orderData }) => {
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
         <h5 className="text-[18px] font-[600]">
           {orderData?.discountPrice
-            ? "PHP " + orderData.discountPrice + ".00"
+            ? "- PHP " + orderData.discountPrice
             : "-"}
         </h5>
       </div>
