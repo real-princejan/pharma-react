@@ -88,7 +88,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   alt="Images"
                 />
                 <div className="flex">
-                  <Link to={`/shop/preview/${data.shop._id}`} className="flex">
+                  {/* <Link to={`/shop/preview/${data.shop._id}`} className="flex">
                     <img
                       src={`${backend_url}${data?.shop?.avatar}`}
                       alt="avatar"
@@ -99,13 +99,13 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                       <h3 className={`${styles.shop_name}`}>
                         {data.shop.name}
                       </h3>
-                      <h5 className="pb-3 text-[15px]">(4.5) Ratings</h5>
+                      <h5 className="pb-3 text-[15px]">{data.ratings} Ratings</h5>
                     </div>
-                  </Link>
+                  </Link> */}
                 </div>
 
                 {/* Send Message */}
-                <div
+                {/* <div
                   className={`${styles.buttonR}  mt-4 rounded-[4px] h-11 hover:bg-green-600 `}
                   onClick={handleMessageSubmit}
                 >
@@ -114,7 +114,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   </span>
                 </div>
 
-                <h5 className="text-[16px] text-red-500 mt-5">(19) Sold out</h5>
+                <h5 className="text-[16px] text-red-500 mt-5">(19) Sold out</h5> */}
               </div>
 
               <div className="w-full 800px:w-[50%] pt-5 pl-[5px] pr-[5px]">
@@ -135,7 +135,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   {/* Button */}
                   <div className="">
                     <button
-                      className="bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-r from-[#9F1515] to-[#fa0c0c] text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={decrementCount}
                     >
                       -
@@ -144,7 +144,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                       {count}
                     </span>
                     <button
-                      className="bg-gradient-to-l from-green-400 to-teal-500 text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-l from-[#9F1515] to-[#fa0c0c] text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={incrementCount}
                     >
                       +

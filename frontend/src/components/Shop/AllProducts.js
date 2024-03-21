@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct, getAllProductsShop } from "../../redux/actions/product";
+import { getAllProductsShop } from "../../redux/actions/product";
 import { Button } from "@mui/material";
-import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Loader from "../Layout/Loader";
 import { DataGrid } from "@mui/x-data-grid";
+import { LuEye } from "react-icons/lu";
 
 const AllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -16,11 +17,6 @@ const AllProducts = () => {
   useEffect(() => {
     dispatch(getAllProductsShop(seller._id));
   }, [dispatch]);
-
-  const handleDelete = (id) => {
-    dispatch(deleteProduct(id));
-    window.location.reload();
-  };
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -62,27 +58,10 @@ const AllProducts = () => {
         return (
           <>
             <Link to={`/product/${params.id}`}>
-              <Button>
-                <AiOutlineEye size={20} />
+            <Button className="hover:text-red-500">
+                <LuEye className="hover:text-red-500"/><span className="px-1 ">Preview</span>
               </Button>
             </Link>
-          </>
-        );
-      },
-    },
-    {
-      field: "Delete",
-      flex: 0.8,
-      minWidth: 120,
-      headerName: "",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Button onClick={() => handleDelete(params.id)}>
-              <AiOutlineDelete size={20} />
-            </Button>
           </>
         );
       },
@@ -96,9 +75,9 @@ const AllProducts = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "₱ " + item.discountPrice,
+        price: "PHP " + item.discountPrice,
         Stock: item.stock,
-        sold:  item?.sold_out,
+        sold: item?.sold_out,
       });
     });
 

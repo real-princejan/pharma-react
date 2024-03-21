@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineArrowRight, AiOutlineMoneyCollect } from "react-icons/ai";
+import {  AiOutlineMoneyCollect } from "react-icons/ai";
+import { LuEye } from "react-icons/lu";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 import { MdBorderClear } from "react-icons/md";
@@ -81,8 +82,8 @@ const DashboardHero = () => {
         return (
           <>
             <Link to={`/order/${params.id}`}>
-              <Button>
-                <AiOutlineArrowRight size={20} />
+              <Button className="hover:text-red-500">
+                <LuEye className="hover:text-red-500"/><span className="px-1 ">Preview</span>
               </Button>
             </Link>
           </>

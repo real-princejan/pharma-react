@@ -56,6 +56,39 @@ router.get(
   })
 );
 
+// update product of a shop
+router.put(
+  "/update-product/:id",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const { name, stock, discountPrice } = req.body;
+      const productId = req.params.id;
+
+      const products = await Product.findById(productId);
+
+      console.log(products)
+
+      if (!products) {
+        return next(new ErrorHandler("Product not found", 400));
+      }
+
+      products.name = name;
+      products.stock = stock;
+      products.discountPrice = discountPrice;
+      
+
+      await products.save();
+
+      res.status(201).json({
+        success: true,
+        products,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
 // delete product of a shop
 router.delete(
   "/delete-shop-product/:id",
@@ -98,7 +131,7 @@ router.get(
   "/get-all-products",
   catchAsyncErrors(async (req, res, next) => {
     try {
-       const products = await Product.find().sort({ createdAt: -1 });
+      const products = await Product.find().sort({ createdAt: -1 });
 
       res.status(201).json({
         success: true,
@@ -110,19 +143,21 @@ router.get(
   })
 );
 
+
 // review for a product
 router.put(
   "/create-new-review",
   isAuthenticated,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { user, rating, comment, productId, orderId } = req.body;
+      const { user, rating, delivery_rating, comment, productId, orderId } = req.body;
 
       const product = await Product.findById(productId);
 
       const review = {
         user,
         rating,
+        delivery_rating,
         comment,
         productId,
       };
@@ -134,20 +169,28 @@ router.put(
       if (isReviewed) {
         product.reviews.forEach((rev) => {
           if (rev.user._id === req.user._id) {
-            (rev.rating = rating), (rev.comment = comment), (rev.user = user);
+            rev.rating = rating;
+            rev.delivery_rating = delivery_rating;
+            rev.comment = comment;
+            rev.user = user;
           }
         });
       } else {
         product.reviews.push(review);
       }
 
-      let avg = 0;
+      let totalRating = 0;
+      let totalDeliveryRating = 0;
 
       product.reviews.forEach((rev) => {
-        avg += rev.rating;
+        totalRating += rev.rating;
+        totalDeliveryRating += rev.delivery_rating;
       });
 
-      product.ratings = avg / product.reviews.length;
+      const avgRating = totalRating / product.reviews.length;
+      const avgDeliveryRating = totalDeliveryRating / product.reviews.length;
+
+      product.ratings = (avgRating + avgDeliveryRating) / 2;
 
       await product.save({ validateBeforeSave: false });
 
@@ -155,7 +198,7 @@ router.put(
         orderId,
         { $set: { "cart.$[elem].isReviewed": true } },
         { arrayFilters: [{ "elem._id": productId }], new: true }
-      );      
+      );
 
       res.status(200).json({
         success: true,
@@ -166,6 +209,7 @@ router.put(
     }
   })
 );
+
 
 // all products --- for admin
 router.get(
@@ -186,5 +230,6 @@ router.get(
     }
   })
 );
+
 
 module.exports = router;

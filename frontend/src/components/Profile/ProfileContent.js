@@ -4,6 +4,7 @@ import {
   AiOutlineCamera,
   AiOutlineDelete,
 } from "react-icons/ai";
+import { LuEye } from "react-icons/lu";
 import { RxCross1 } from "react-icons/rx";
 import styles from "../../styles/styles";
 import { toast } from "react-toastify";
@@ -82,7 +83,7 @@ const ProfileContent = ({ active }) => {
               <img
                 src={`${backend_url}${user?.avatar}`}
                 alt="Profile Page"
-                className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-green-500 "
+                className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#9F1515] "
               />
               <div className="w-[30px] h-[30px] bg-[#e3e9ee] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[5px] right-[5px]">
                 <input
@@ -162,7 +163,7 @@ const ProfileContent = ({ active }) => {
                 type="submit"
                 value="Update"
                 required
-                className={`w-[250px] h-[40px] border border-green-500 text-center text-green-500 rounded-[3px] mt-8 cursor-pointer hover:text-white hover:bg-green-500`}
+                className={`w-[250px] h-[40px] border border-[#9F1515] text-center text-[#9F1515] rounded-[3px] mt-8 cursor-pointer hover:text-white hover:bg-[#9F1515]`}
               />
             </form>
           </div>
@@ -255,8 +256,9 @@ const AllOrders = () => {
         return (
           <>
             <Link to={`/user/order/${params.id}`}>
-              <Button>
-                <AiOutlineArrowRight size={20} />
+              <Button className="hover:text-red-500">
+                <LuEye className="hover:text-red-500" />
+                <span className="px-1 ">Preview</span>
               </Button>
             </Link>
           </>
@@ -299,8 +301,8 @@ const AllRefundOrders = () => {
     dispatch(getAllOrdersOfUser(user._id));
   }, []);
 
-  const eligibleOrders = orders && orders.filter((item) => item.status === "Processing refund");
-
+  const eligibleOrders =
+    orders && orders.filter((item) => item.status === "Processing refund");
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },
@@ -340,9 +342,9 @@ const AllRefundOrders = () => {
       renderCell: (params) => {
         return (
           <>
-             <Link to={`/user/order/${params.id}`}>
-              <Button>
-                <AiOutlineArrowRight size={20} />
+            <Link to={`/user/order/${params.id}`}>
+            <Button className="hover:text-red-500">
+                <LuEye className="hover:text-red-500"/><span className="px-1 ">Preview</span>
               </Button>
             </Link>
           </>
@@ -354,7 +356,7 @@ const AllRefundOrders = () => {
   const row = [];
 
   eligibleOrders &&
-  eligibleOrders.forEach((item) => {
+    eligibleOrders.forEach((item) => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
@@ -424,8 +426,8 @@ const TrackOrder = () => {
         return (
           <>
             <Link to={`/user/track/order/${params.id}`}>
-              <Button>
-                <MdTrackChanges size={20} />
+            <Button className="hover:text-red-500">
+                <MdTrackChanges className="hover:text-red-500"/><span className="px-1 ">Preview</span>
               </Button>
             </Link>
           </>
@@ -525,7 +527,7 @@ const ChangePassword = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <input
-              className={`w-[95%] h-[40px] border font-semibold border-green-500 text-center text-gray-800 rounded-[3px] mt-8 cursor-pointer hover:text-white hover:bg-green-500`}
+              className={`w-[95%] h-[40px] border font-semibold border-[#9F1515] text-center text-gray-800 rounded-[3px] mt-8 cursor-pointer hover:text-white hover:bg-green-500`}
               required
               value="Update"
               type="submit"

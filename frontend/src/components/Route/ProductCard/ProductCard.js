@@ -27,9 +27,12 @@ const ProductCard = ({ data }) => {
   const { cart } = useSelector((state) => state.cart);
   const [click, setClick] = useState(false);
   const [open, setOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(() => {
+    // Initialize click count from localStorage or default to 0
+    const storedCount = localStorage.getItem(`clickCount_${data._id}`);
+    return storedCount ? parseInt(storedCount, 10) : 0;
+  });
   const dispatch = useDispatch();
-
-  const d = data.name;
 
   useEffect(() => {
     if (wishlist && wishlist.find((i) => i._id === data._id)) {
@@ -63,6 +66,15 @@ const ProductCard = ({ data }) => {
       }
     }
   };
+
+  // Function to increment click count
+  const handleClick = () => {
+    const newClickCount = clickCount + 1;
+    setClickCount(newClickCount);
+    // Store click count in localStorage
+    localStorage.setItem(`clickCount_${data._id}`, newClickCount);
+  };
+
   return (
     <>
       <div className="w-full h-[370px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer">
@@ -72,6 +84,7 @@ const ProductCard = ({ data }) => {
             src={`${backend_url}${data.images && data.images[0]}`}
             alt="Product Image"
             className="w-full h-[170px] object-contain"
+            onClick={handleClick} // Increment click count when the image is clicked
           />
         </Link>
         <Link to="/">
@@ -146,6 +159,8 @@ const ProductCard = ({ data }) => {
             color="#444"
             title="Add to cart"
           />
+          {/* Display click count */}
+          {/* <p>Clicked: {clickCount} times</p>   */}
           {open ? <ProductDetailsCard setOpen={setOpen} data={data} /> : null}
         </div>
       </div>

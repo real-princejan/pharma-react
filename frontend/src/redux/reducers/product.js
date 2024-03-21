@@ -4,6 +4,7 @@ const initialState = {
   isLoading: true,
 };
 
+// Create a product
 export const productReducer = createReducer(initialState, {
   productCreateRequest: (state) => {
     state.isLoading = true;
@@ -14,6 +15,21 @@ export const productReducer = createReducer(initialState, {
     state.success = true;
   },
   productCreateFail: (state, action) => {
+    state.isLoading = false;
+    state.error = action.payload;
+    state.success = false;
+  },
+
+  // Update a product
+  updateProductRequest: (state) => {
+    state.isLoading = true;
+  },
+  updateProductSuccess: (state, action) => {
+    state.isLoading = false;
+    state.product = action.payload;
+    state.success = true;
+  },
+  updateProductFailed: (state, action) => {
     state.isLoading = false;
     state.error = action.payload;
     state.success = false;
@@ -57,7 +73,7 @@ export const productReducer = createReducer(initialState, {
     state.isLoading = false;
     state.error = action.payload;
   },
-  
+
   clearErrors: (state) => {
     state.error = null;
   },

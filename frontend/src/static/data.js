@@ -166,12 +166,32 @@ export const categoriesData = [
   },
   {
     id: 6,
+    title: "Eye-care",
+    subTitle: "",
+    image_Url: "https://i.ibb.co/jLN3krB/eye-care.png",
+  },
+  {
+    id: 7,
+    title: "Feminine Wash",
+    subTitle: "",
+    image_Url:
+      "https://i.ibb.co/Xx2wXPT/fem-wash.png",
+  },
+  {
+    id: 8,
+    title: "Shave",
+    subTitle: "",
+    image_Url:
+      "https://i.ibb.co/KXx3hrg/shave.png",
+  },
+  {
+    id: 9,
     title: "Over-The-Counter",
     subTitle: "",
     image_Url: "https://i.ibb.co/2jdtFcB/otc.png",
   },
   {
-    id: 7,
+    id: 10,
     title: "Baby & Kids",
     subTitle: "",
     image_Url:

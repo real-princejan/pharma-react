@@ -12,18 +12,19 @@ const ProductsPage = () => {
   const categoryData = searchParams.get("category");
   const { allProducts, isLoading } = useSelector((state) => state.products);
   const [data, setData] = useState([]);
+  const [categoryTitle, setCategoryTitle] = useState(null);
 
   useEffect(() => {
     if (categoryData === null) {
       const d = allProducts;
       setData(d);
+      setCategoryTitle(null); // Reset category title
     } else {
-      const d =
-        allProducts && allProducts.filter((i) => i.category === categoryData);
+      const d = allProducts && allProducts.filter((i) => i.category === categoryData);
       setData(d);
+      setCategoryTitle(categoryData); // Set category title
     }
-    //    window.scrollTo(0,0);
-  }, [allProducts]);
+  }, [allProducts, categoryData]);
 
   return (
     <>
@@ -33,6 +34,7 @@ const ProductsPage = () => {
         <div>
           <Header activeHeading={2} />
           <br />
+          {categoryTitle && <h1 className="pop-outin text-center font-semibold text-2xl mb-4">{categoryTitle}</h1>}
           <br />
           <div className={`${styles.section}`}>
             <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">

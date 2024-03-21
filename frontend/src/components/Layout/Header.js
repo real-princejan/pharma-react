@@ -61,9 +61,9 @@ const Header = ({ activeHeading }) => {
       {/* 1st header */}
       <div className={`${styles.section}`}>
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
-          <div className="">
+          <div>
             <Link to="/">
-              <img src={pharmaLogo} alt="pharma logo" />
+              <img src={pharmaLogo} alt="pharma logo" className="w-[250px] h-[75px] relative"/>
             </Link>
           </div>
           {/* Search Box */}
@@ -73,7 +73,7 @@ const Header = ({ activeHeading }) => {
               placeholder="Search Product..."
               value={searchTerm}
               onChange={handleSearch}
-              className="h-[40px] w-full px-2 border-green-600 border-[2px] rounded-md"
+              className="h-[40px] w-full px-2 border-[#9F1515] border-[2px] rounded-md"
             />
             <AiOutlineSearch
               size={30}
@@ -116,7 +116,7 @@ const Header = ({ activeHeading }) => {
       <div
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-green-500 h-[70px]`}
+        } transition hidden 800px:flex items-center justify-between w-full bg-[#9F1515] h-[70px]`}
       >
         <div
           className={`${styles.section} relative ${styles.normalFlex} justify-between`}
@@ -124,15 +124,11 @@ const Header = ({ activeHeading }) => {
           {/* Categories */}
           <div onClick={() => setDropDown(!dropDown)}>
             <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
-              <BiCategoryAlt size={30} className="absolute top-4 left-4" />
-              <button
-                className={`h-[100%] w-full flex justify-between items-center pl-16 bg-white font-Poppins text-lg font-[500] select-none rounded-t-md`}
-              >
-                All Categories
-              </button>
+              <BiCategoryAlt size={30} color="#fff" className="absolute top-4 left-4" />
               <IoIosArrowDown
                 size={20}
-                className="absolute right-2 top-5  cursor-pointer"
+                color="#fff"
+                className="absolute left-12 top-5 cursor-pointer"
                 onClick={() => setDropDown(!dropDown)}
               />
               {dropDown ? (
@@ -229,7 +225,7 @@ const Header = ({ activeHeading }) => {
               <img
                 src={pharmaLogo}
                 alt="pharma logo"
-                className="mt-1 cursor-pointer"
+                className="mt-1 cursor-pointer w-[220px] h-[60px] relative"
               />
             </Link>
           </div>

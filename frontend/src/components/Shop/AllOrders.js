@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Loader from "../Layout/Loader";
 import { getAllOrdersOfShop } from "../../redux/actions/order";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { LuEye } from "react-icons/lu";
 
 const AllOrders = () => {
   const { orders, isLoading } = useSelector((state) => state.order);
@@ -55,8 +56,8 @@ const AllOrders = () => {
         return (
           <>
             <Link to={`/order/${params.id}`}>
-              <Button>
-                <AiOutlineArrowRight size={20} />
+            <Button className="hover:text-red-500">
+                <LuEye className="hover:text-red-500"/><span className="px-1 ">Preview</span>
               </Button>
             </Link>
           </>

@@ -49,6 +49,45 @@ export const getAllProductsShop = (id) => async (dispatch) => {
   }
 };
 
+export const updateProduct =
+  (name, stock, discountPrice, id) => async (dispatch) => {
+    try {
+      dispatch({
+        type: "updateProductRequest",
+      });
+
+      const { data } = await axios.put(
+        `${server}/product/update-product/${id}`,
+        {
+          name,
+          stock,
+          discountPrice,
+        }
+      );
+
+      if (data && data.product) {
+        dispatch({
+          type: "updateProductSuccess",
+          payload: data.product,
+        });
+      } else {
+        dispatch({
+          type: "updateProductFailed",
+          payload:
+            "Failed to update product. Updated product not found in response.",
+        });
+      }
+    } catch (error) {
+      console.error("Error updating product:", error);
+      dispatch({
+        type: "updateProductFailed",
+        payload: error.response
+          ? error.response.data.message
+          : "Failed to update product. Please try again later.",
+      });
+    }
+  };
+
 // delete product of a shop
 export const deleteProduct = (id) => async (dispatch) => {
   try {

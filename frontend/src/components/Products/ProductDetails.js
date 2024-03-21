@@ -108,9 +108,9 @@ const ProductDetails = ({ data }) => {
       0
     );
 
-    const avg =  totalRatings / totalReviewsLength || 0;
+  const avg = totalRatings / totalReviewsLength || 0;
 
-    const averageRating = avg.toFixed(2);
+  const averageRating = avg.toFixed(2);
 
   return (
     <div className="bg-white ">
@@ -161,18 +161,22 @@ const ProductDetails = ({ data }) => {
                   </h3>
                 </div>
 
-                 {/* Stock information */}
-  <div className="flex items-center mt-2">
-    <span className={`${data.stock > 0 ? 'text-green-600' : 'text-red-600'}`}>
-      {data.stock > 0 ? 'In Stock' : 'Out of Stock'}
-    </span>
-  </div>
+                {/* Stock information */}
+                <div className="flex items-center mt-2">
+                  <span
+                    className={`${
+                      data.stock > 0 ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    {data.stock > 0 ? "In Stock" : "Out of Stock"}
+                  </span>
+                </div>
 
                 <div className="flex items-center mt-12 justify-between pr-3">
                   {/* Button */}
                   <div className="">
                     <button
-                      className="bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-r from-[#9F1515] to-[#fa0c0c] text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={decrementCount}
                     >
                       -
@@ -181,7 +185,7 @@ const ProductDetails = ({ data }) => {
                       {count}
                     </span>
                     <button
-                      className="bg-gradient-to-l from-green-400 to-teal-500 text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-l from-[#9F1515] to-[#fa0c0c] text-white font-bold rounded-lg px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={incrementCount}
                     >
                       +

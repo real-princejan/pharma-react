@@ -41,6 +41,7 @@ import {
   AdminDashboardSellers,
   AdminDashboardOrders,
   AdminDashboardProducts,
+  AdminDashboardProductsEdit,
   AdminDashboardEvents,
   AdminDashboardWithdraw,
 } from "./routes/AdminRoutes";
@@ -284,6 +285,14 @@ const App = () => {
           element={
             <ProtectedAdminRoute>
               <AdminDashboardProducts />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin-products-edit"
+          element={
+            <ProtectedAdminRoute>
+              <AdminDashboardProductsEdit />
             </ProtectedAdminRoute>
           }
         />

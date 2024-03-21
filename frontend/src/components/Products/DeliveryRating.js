@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsStarHalf } from "react-icons/bs";
 
-const Ratings = ({ rating, deliveryRating }) => {
+const DeliveryRating = ({ rating, deliveryRating }) => {
   const stars = [];
 
   const renderStars = (value, type) => {
@@ -33,12 +33,10 @@ const Ratings = ({ rating, deliveryRating }) => {
 
   return (
     <div className="flex pr-2">
-      {/* <p className="pl-5">Product Rating:</p> */}
-      {stars}
-      {/* <p className="pl-5">Delivery Rating:</p>
-      {deliveryStars} */}
+      <p className="pl-5">Delivery Rating:</p>
+      {deliveryStars}
     </div>
   );
 };
 
-export default Ratings;
+export default DeliveryRating;

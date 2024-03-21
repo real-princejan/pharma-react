@@ -40,6 +40,9 @@ const productSchema = new mongoose.Schema({
       rating: {
         type: Number,
       },
+      delivery_rating: {
+        type: Number,
+      },
       comment: {
         type: String,
       },
@@ -54,6 +57,10 @@ const productSchema = new mongoose.Schema({
   ],
   ratings: {
     type: Number,
+  },
+  clickCount: {
+    type: Number,
+    default: 0,
   },
   shopId: {
     type: String,

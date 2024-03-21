@@ -19,10 +19,10 @@ const DashboardSidebar = ({ active }) => {
       {/* First Item */}
       <div className="w-full flex items-center p-4">
         <Link to="/dashboard" className="w-full flex items-center">
-          <RxDashboard size={30} color={`${active === 1 ? "green" : "#555"}`} />
+          <RxDashboard size={30} color={`${active === 1 ? "#9F1515" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[16px] font-[400 ${
-              active === 1 ? "text-green-600 font-semibold" : "text-[#555]"
+              active === 1 ? "text-[#9F1515] font-semibold" : "text-[#555]"
             }`}
           >
             Dashboard
@@ -38,11 +38,11 @@ const DashboardSidebar = ({ active }) => {
         >
           <FiShoppingBag
             size={30}
-            color={`${active === 2 ? "green" : "#555"}`}
+            color={`${active === 2 ? "#9F1515" : "#555"}`}
           />
           <h5
             className={`hidden 800px:block pl-2 text-[16px] font-[400 ${
-              active === 2 ? "text-green-600 font-semibold" : "text-[#555]"
+              active === 2 ? "text-[#9F1515] font-semibold" : "text-[#555]"
             }`}
           >
             Orders
@@ -74,10 +74,10 @@ const DashboardSidebar = ({ active }) => {
           className="w-full flex items-center p-4 cursor-pointer"
           onClick={() => setShowProducts(!showProducts)}
         >
-          <FiPackage size={30} color={`${active === 3 ? "green" : "#555"}`} />
+          <FiPackage size={30} color={`${active === 3 ? "#9F1515" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[16px] font-[400 ${
-              active === 3 ? "text-green-600 font-semibold" : "text-[#555]"
+              active === 3 ? "text-[#9F1515] font-semibold" : "text-[#555]"
             }`}
           >
             Products
@@ -108,10 +108,10 @@ const DashboardSidebar = ({ active }) => {
           className="w-full flex items-center p-4 cursor-pointer"
           onClick={() => setShowEvents(!showEvents)}
         >
-          <AiOutlineGift size={30} color={`${active === 4 ? "green" : "#555"}`} />
+          <AiOutlineGift size={30} color={`${active === 4 ? "#9F1515" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[16px] font-[400 ${
-              active === 4 ? "text-green-600 font-semibold" : "text-[#555]"
+              active === 4 ? "text-[#9F1515] font-semibold" : "text-[#555]"
             }`}
           >
             Events
@@ -135,11 +135,11 @@ const DashboardSidebar = ({ active }) => {
         <Link to="/dashboard-messages" className="w-full flex items-center">
           <BiMessageSquareDetail
             size={30}
-            color={`${active === 5 ? "green" : "#555"}`}
+            color={`${active === 5 ? "#9F1515" : "#555"}`}
           />
           <h5
             className={`hidden 800px:block pl-2 text-[16px] font-[400 ${
-              active === 5 ? "text-green-600 font-semibold" : "text-[#555]"
+              active === 5 ? "text-[#9F1515] font-semibold" : "text-[#555]"
             }`}
           >
             Inbox
@@ -150,10 +150,10 @@ const DashboardSidebar = ({ active }) => {
       {/* Sixth Item */}
       <div className="w-full flex items-center p-4">
         <Link to="/settings" className="w-full flex items-center">
-          <CiSettings size={30} color={`${active === 6 ? "green" : "#555"}`} />
+          <CiSettings size={30} color={`${active === 6 ? "#9F1515" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[16px] font-[400 ${
-              active === 6 ? "text-green-600 font-semibold" : "text-[#555]"
+              active === 6 ? "text-[#9F1515] font-semibold" : "text-[#555]"
             }`}
           >
             Settings

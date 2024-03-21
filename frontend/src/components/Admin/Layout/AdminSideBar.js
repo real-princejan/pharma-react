@@ -48,7 +48,7 @@ const AdminSideBar = ({ active }) => {
               active === 3 ? "text-green-600 font-semibold" : "text-[#555]"
             }`}
           >
-            Seller Management
+            Cashier Management
           </h5>
         </Link>
       </div>

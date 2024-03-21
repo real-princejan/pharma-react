@@ -18,6 +18,7 @@ const UserOrderDetails = () => {
   const [comment, setComment] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
   const [rating, setRating] = useState(1);
+  const [deliveryRating, setDeliveryRating] = useState(1); // State to handle delivery rating
 
   const { id } = useParams();
 
@@ -27,8 +28,6 @@ const UserOrderDetails = () => {
 
   const data = orders && orders.find((item) => item._id === id);
 
-
-
   const reviewHandler = async (e) => {
     await axios
       .put(
@@ -36,6 +35,7 @@ const UserOrderDetails = () => {
         {
           user,
           rating,
+          delivery_rating: deliveryRating, // Delivery rating,
           comment,
           productId: selectedItem?._id,
           orderId: id,
@@ -47,6 +47,7 @@ const UserOrderDetails = () => {
         dispatch(getAllOrdersOfUser(user._id));
         setComment("");
         setRating(null);
+        setDeliveryRating(null); // Reset delivery rating
         setOpen(false);
       })
       .catch((error) => {
@@ -169,6 +170,31 @@ const UserOrderDetails = () => {
                     color="rgb(246,186,0)"
                     size={25}
                     onClick={() => setRating(i)}
+                  />
+                )
+              )}
+            </div>
+            <br />
+            <h5 className="pl-3 text-[20px] font-[500]">
+             Delivery Rating <span className="text-red-500">*</span>
+            </h5>
+            <div className="flex w-full ml-2 pt-1">
+              {[1, 2, 3, 4, 5].map((i) =>
+                deliveryRating >= i ? (
+                  <AiFillStar
+                    key={i}
+                    className="mr-1 cursor-pointer"
+                    color="rgb(246,186,0)"
+                    size={25}
+                    onClick={() => setDeliveryRating(i)}
+                  />
+                ) : (
+                  <AiOutlineStar
+                    key={i}
+                    className="mr-1 cursor-pointer"
+                    color="rgb(246,186,0)"
+                    size={25}
+                    onClick={() => setDeliveryRating(i)}
                   />
                 )
               )}

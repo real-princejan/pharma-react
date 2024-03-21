@@ -10,7 +10,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
     window.location.reload();
   };
   return (
-    <div className="pb-4 w-[270px] bg-white absolute z-30 rounded-b-md shadow-sm">
+    <div className="pb-5 w-[270px] top-12 bg-white absolute z-30 rounded-b-md shadow-sm">
       {categoriesData &&
         categoriesData.map((i, index) => (
           <div
@@ -29,7 +29,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
                 userSelect: "none",
               }}
             />
-            <h3 className="m-3 cursor-pointer select-none">{i.title}</h3>
+            <h3 className="m-3 cursor-pointer select-none hover:text-gray-500">{i.title}</h3>
           </div>
         ))}
     </div>
